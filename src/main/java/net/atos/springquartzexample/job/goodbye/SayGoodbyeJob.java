@@ -1,6 +1,7 @@
-package net.atos.springquartzexample.job.hello;
+package net.atos.springquartzexample.job.goodbye;
 
 import lombok.extern.slf4j.Slf4j;
+import net.atos.springquartzexample.service.SayGoodbyeService;
 import net.atos.springquartzexample.service.SayHelloService;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
@@ -10,14 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
 @DisallowConcurrentExecution
-public class SayHelloJob implements Job {
+public class SayGoodbyeJob implements Job {
 
     @Autowired
-    private SayHelloService sayHelloService;
+    private SayGoodbyeService sayGoodbyeService;
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        log.info("Start - quartz job say hello");
-        sayHelloService.sayHello();
+        log.info("Start - quartz job say goodbye");
+        sayGoodbyeService.sayGoodbye();
     }
 }
