@@ -1,0 +1,18 @@
+# Note, that all quartz properties should be wrapped in ""
+org:
+  quartz:
+    scheduler:
+      instanceName: "atos-quartz-scheduler"
+      instanceId: "AUTO"
+    threadPool:
+      class: "org.quartz.simpl.SimpleThreadPool"
+      threadCount: "10"
+      threadPriority: "5"
+    jobStore:
+      misfireThreshold: "1000"
+      class: "org.quartz.impl.jdbcjobstore.JobStoreTX"
+      driverDelegateClass: "org.quartz.impl.jdbcjobstore.StdJDBCDelegate"
+      useProperties: "true"
+      tablePrefix: "QRTZ_"
+      isClustered: "true"
+      clusterCheckinInterval: "1000"
